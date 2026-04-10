@@ -29,7 +29,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
@@ -50,7 +50,7 @@ export default function Login() {
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6" id="login-form">
             {error && (
-              <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 text-red-300 px-4 py-3 rounded-xl text-sm" role="alert">
+              <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 text-red-300 px-4 py-3 rounded-xl text-sm" role="alert" aria-live="assertive">
                 <AlertCircle className="w-5 h-5 shrink-0" />
                 <span>{error}</span>
               </div>
@@ -74,6 +74,7 @@ export default function Login() {
                   className="w-full pl-12 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500
                              focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50
                              transition-all duration-200 text-lg tracking-widest font-mono"
+                  autoComplete="cc-number"
                   required
                 />
               </div>
@@ -97,6 +98,7 @@ export default function Login() {
                   className="w-full pl-12 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500
                              focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50
                              transition-all duration-200 text-lg tracking-widest font-mono"
+                  autoComplete="current-password"
                   required
                 />
               </div>
@@ -144,6 +146,6 @@ export default function Login() {
           Simulated banking environment for educational purposes only.
         </p>
       </div>
-    </div>
+    </main>
   );
 }

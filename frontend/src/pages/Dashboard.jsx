@@ -161,7 +161,7 @@ function DepositPanel({ onSuccess, onError }) {
     if (!amount || Number(amount) <= 0) return;
     setLoading(true);
     try {
-      const data = await api.deposit(Number(amount));
+      const res = await api.deposit(Number(amount));
       onSuccess(`₹${Number(amount).toLocaleString('en-IN')} deposited successfully`);
     } catch (err) { onError(err.message); }
     finally { setLoading(false); }
@@ -345,7 +345,8 @@ function PinChangePanel({ onSuccess, onError }) {
           onChange={(e) => setOldPin(e.target.value.replace(/\D/g, ''))}
           placeholder="••••"
           className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500
-          focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition-all duration-200 text-lg tracking-[0.5em] font-mono text-center" />
+          focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition-all duration-200 text-lg tracking-[0.5em] font-mono text-center"
+          autoComplete="current-password" />
       </div>
       <div>
         <label htmlFor="new-pin" className="block text-sm font-medium text-slate-300 mb-2">New PIN</label>
@@ -353,7 +354,8 @@ function PinChangePanel({ onSuccess, onError }) {
           onChange={(e) => setNewPin(e.target.value.replace(/\D/g, ''))}
           placeholder="••••"
           className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500
-          focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition-all duration-200 text-lg tracking-[0.5em] font-mono text-center" />
+          focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition-all duration-200 text-lg tracking-[0.5em] font-mono text-center"
+          autoComplete="new-password" />
       </div>
       <div>
         <label htmlFor="confirm-pin" className="block text-sm font-medium text-slate-300 mb-2">Confirm New PIN</label>
@@ -361,7 +363,8 @@ function PinChangePanel({ onSuccess, onError }) {
           onChange={(e) => setConfirmPin(e.target.value.replace(/\D/g, ''))}
           placeholder="••••"
           className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500
-          focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition-all duration-200 text-lg tracking-[0.5em] font-mono text-center" />
+          focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition-all duration-200 text-lg tracking-[0.5em] font-mono text-center"
+          autoComplete="new-password" />
       </div>
       <button onClick={handleChange}
         disabled={loading || oldPin.length !== 4 || newPin.length !== 4 || confirmPin.length !== 4}

@@ -1,0 +1,20 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Build outputs
+frontend/dist/
+frontend/node_modules/
+backend/target/
+
+# Environment
+*.env
+*.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

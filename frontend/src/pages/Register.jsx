@@ -65,7 +65,7 @@ export default function Register() {
   // Credentials modal
   if (credentials) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4">
+      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4">
         <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500/20 rounded-full mb-6">
             <Check className="w-8 h-8 text-emerald-400" />
@@ -102,12 +102,12 @@ export default function Register() {
             </button>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4 py-8">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 px-4 py-8">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -128,7 +128,8 @@ export default function Register() {
           {steps.map((step, i) => (
             <div key={step.id} className="flex items-center gap-2">
               <div className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-bold transition-all duration-300
-                ${currentStep > step.id ? 'bg-emerald-500 text-white' : currentStep === step.id ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : 'bg-white/5 text-slate-500 border border-white/10'}`}>
+                ${currentStep > step.id ? 'bg-emerald-500 text-white' : currentStep === step.id ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50' : 'bg-white/5 text-slate-500 border border-white/10'}`}
+                aria-current={currentStep === step.id ? 'step' : undefined}>
                 {currentStep > step.id ? <Check className="w-4 h-4" /> : step.id}
               </div>
               <span className={`text-xs font-medium hidden sm:inline ${currentStep >= step.id ? 'text-slate-300' : 'text-slate-600'}`}>
@@ -144,7 +145,7 @@ export default function Register() {
         {/* Form Card */}
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
           {error && (
-            <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 text-red-300 px-4 py-3 rounded-xl text-sm mb-6" role="alert">
+            <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 text-red-300 px-4 py-3 rounded-xl text-sm mb-6" role="alert" aria-live="assertive">
               <AlertCircle className="w-5 h-5 shrink-0" />
               <span>{error}</span>
             </div>
@@ -313,7 +314,7 @@ export default function Register() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
