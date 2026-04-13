@@ -1,6 +1,6 @@
 # 🏦 NexusBank: Web-Based ATM & Banking Management System
 
-![Project Banner](assets/banner.png)
+
 
 ## 🌟 Overview
 **NexusBank** is a modern, full-stack Banking Management System designed to simulate a real-world digital banking environment. It provides a seamless transition from a traditional account opening process to a sophisticated ATM simulator dashboard. Built with a robust **Spring Boot** backend and a dynamic **React** frontend, it demonstrates the integration of secure financial operations with a premium user experience.
