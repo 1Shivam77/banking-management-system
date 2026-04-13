@@ -39,4 +39,26 @@ public class AuthController {
                     .body(Map.of("error", e.getMessage()));
         }
     }
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<?> verifyOtp(@Valid @RequestBody VerifyOtpRequest request) {
+        try {
+            LoginResponse response = authService.verifyOtp(request);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", e.getMessage()));
+        }
+    }
+
+    @PostMapping("/admin-login")
+    public ResponseEntity<?> adminLogin(@Valid @RequestBody AdminLoginRequest request) {
+        try {
+            LoginResponse response = authService.adminLogin(request);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", e.getMessage()));
+        }
+    }
 }

@@ -1,61 +1,66 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0F172A;
-  --color-primary-light: #334155;
-  --color-accent: #10B981;
-  --color-accent-hover: #059669;
-  --color-danger: #EF4444;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* Professional Fintech Palette — Navy + Gold accent */
+  --color-navy-950: #0a0e1a;
+  --color-navy-900: #0f1629;
+  --color-navy-800: #162040;
+  --color-navy-700: #1e2d54;
+  --color-navy-600: #2a3f6e;
+  --color-gold: #c9a227;
+  --color-gold-light: #e4bf45;
+  --color-gold-dark: #a88620;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
-  /* UI/UX Pro Max Priority 1: Accessibility */
-  :root {
-    --bg-color: #f8fafc;
-    --text-color: #0f172a;
-    --border-color: #e2e8f0;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-color: #0f172a;
-      --text-color: #f8fafc;
-      --border-color: #334155;
-    }
-  }
-
   body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--color-navy-950);
+    color: #e2e8f0;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
 
-  /* Interaction and accessibility rules */
+  /* ui-ux-pro-max: Priority 1 — focus-visible rings */
   *:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-gold);
     outline-offset: 2px;
   }
 
-  button, a {
+  /* ui-ux-pro-max: Priority 2 — cursor-pointer on interactives */
+  button, a, [role="button"] {
     cursor: pointer;
   }
+
+  /* Scrollbar styling for dark mode */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
 }
 
-/* Custom animations for toast and panels */
+/* Custom animations — 150-300ms per ui-ux-pro-max rule */
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(-12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Reduced motion accessibility (ui-ux-pro-max Priority 3) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* ui-ux-pro-max: Priority 3 — prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

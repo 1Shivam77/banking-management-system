@@ -130,3 +130,28 @@ Once authenticated via JWT, the user accesses the protected ATM dashboard route.
 
 * [ ] Contact/Support Email listed on the UI
 * [ ] Bug Report option integrated into the dashboard
+
+## **7. Advanced Features Roadmap (V2.0)**
+
+### **7.1 Core High-Priority Features (Amazon/Cognizant Level)**
+1. **Two-Factor Authentication (2FA) + JWT:** OTP (Email/SMS) verification during login for banking-grade security.
+2. **Fund Transfer (UPI-like):** Transfer funds to other users using Card Number or Account Number.
+3. **Transaction Analytics Dashboard:** Visual graphs and category-wise spending charts (e.g., using Chart.js/Recharts).
+4. **Admin Panel:** Complete admin dashboard to view users, freeze accounts, view transactions, and analyze system data.
+5. **PDF Statement Download:** Export the mini statement to a downloadable PDF document.
+
+### **7.2 Additional Feature Roadmap**
+* **Virtual Debit Card UI:** Visual representation of the card with flip animations (front/back showing masked details).
+* **Real-Time Notifications:** Instant deposit/withdrawal alerts (Web/Email).
+* **AI Chatbot Assistant:** Basic chatbot for quick balance checks and transaction history.
+* **Account Lock/Unlock:** Auto-lock after 3 failed PIN attempts, requiring Email unlock.
+* **Multi-Language Support:** English + Hindi dual language toggle.
+* **Scheduled Payments:** Set future payment dates (e.g., automated monthly rent).
+* **Location-Based Security:** Alerts for logins from unrecognized locations.
+* **Offline Mode (PWA):** Installable web app experience.
+* **Gamification:** Saving streaks and achievement badges (e.g., "Saver", "High Depositor").
+* **Advanced Search & Filters:** Filter transactions by Date, Amount, and Type.
+* **Credit Score Simulation:** Generated credit score based on balance and transaction history.
+* **Fraud Detection System:** Alerts for suspicious activity (sudden large withdrawals, failed logins).
+* **API Rate Limiting Dashboard:** Track API hits and log endpoints.
+* **Cloud Deployment:** Hosted seamlessly on AWS, Render, or Railway.

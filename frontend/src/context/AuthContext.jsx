@@ -10,9 +10,10 @@ export function AuthProvider({ children }) {
     const token = localStorage.getItem('token');
     const cardNumber = localStorage.getItem('cardNumber');
     const name = localStorage.getItem('userName');
+    const role = localStorage.getItem('userRole');
 
     if (token && cardNumber) {
-      setUser({ token, cardNumber, name });
+      setUser({ token, cardNumber, name, role });
     }
     setLoading(false);
   }, []);
@@ -21,6 +22,7 @@ export function AuthProvider({ children }) {
     localStorage.setItem('token', data.token);
     localStorage.setItem('cardNumber', data.cardNumber);
     localStorage.setItem('userName', data.name);
+    if (data.role) localStorage.setItem('userRole', data.role);
     setUser(data);
   };
 
@@ -28,6 +30,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('token');
     localStorage.removeItem('cardNumber');
     localStorage.removeItem('userName');
+    localStorage.removeItem('userRole');
     setUser(null);
   };
 

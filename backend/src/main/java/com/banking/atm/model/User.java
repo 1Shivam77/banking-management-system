@@ -96,4 +96,20 @@ public class User {
 
     public Boolean getSeniorCitizen() { return seniorCitizen; }
     public void setSeniorCitizen(Boolean seniorCitizen) { this.seniorCitizen = seniorCitizen; }
+
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.ROLE_USER;
+
+    private Boolean isActive = true;
+
+    private String password;
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public Role getRole() { return role; }
+    public void setRole(Role role) { this.role = role; }
+
+    public Boolean getIsActive() { return isActive; }
+    public void setIsActive(Boolean isActive) { this.isActive = isActive; }
 }

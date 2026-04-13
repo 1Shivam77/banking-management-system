@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     List<Transaction> findTop10ByAccountIdOrderByTimestampDesc(Long accountId);
+    List<Transaction> findTop50ByAccountIdOrderByTimestampDesc(Long accountId);
 }
